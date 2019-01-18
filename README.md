@@ -4,7 +4,7 @@ Implementation of [NetVlad](https://arxiv.org/abs/1511.07247) in PyTorch, includ
 
 ### Reproducing the paper
 
-Below are the result from reproducing the results in third row in the right column of Table 1:
+Below are the result as compared to the results in third row in the right column of Table 1:
 
 |   |R@1|R@5|R@10|
 |---|---|---|---|
