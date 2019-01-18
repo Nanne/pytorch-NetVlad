@@ -9,7 +9,8 @@ Below are the result as compared to the results in third row in the right column
 |   |R@1|R@5|R@10|
 |---|---|---|---|
 | [NetVlad paper](https://arxiv.org/abs/1511.07247)  | 84.1  | 94.6  | 95.5  |
-| pytorch-NetVlad  | 85.2  | 94.8  | 97.0  |
+| pytorch-NetVlad(alexnet)  | 68.6  | 84.6  | 89.3  |
+| pytorch-NetVlad(vgg16)  | 85.2  | 94.8  | 97.0  |
 
 Running main.py with train mode and default settings should give similar scores to the ones shown above. Additionally, the model state for the above run is
 available here: https://drive.google.com/open?id=17luTjZFCX639guSVy00OUtzfTQo4AMF2
