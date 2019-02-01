@@ -17,7 +17,7 @@ available here: https://drive.google.com/open?id=17luTjZFCX639guSVy00OUtzfTQo4AM
 
 Using this checkpoint and the following command you can obtain the results shown above:
 
-    python main.py --mode=test --split=val --resume=vgg16_netvlad_checkpoint/ --ckpt=best
+    python main.py --mode=test --split=val --resume=vgg16_netvlad_checkpoint/
 
 # Setup
 
