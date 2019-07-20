@@ -59,7 +59,8 @@ parser.add_argument('--dataset', type=str, default='pittsburgh',
         help='Dataset to use', choices=['pittsburgh'])
 parser.add_argument('--arch', type=str, default='vgg16', 
         help='basenetwork to use', choices=['vgg16', 'alexnet'])
-parser.add_argument('--pooling', type=str, default='netvlad', help='type of pooling to use', 
+parser.add_argument('--vladv2', action='store_true', help='Use VLAD v2')
+parser.add_argument('--pooling', type=str, default='netvlad', help='type of pooling to use',
         choices=['netvlad', 'max', 'avg'])
 parser.add_argument('--num_clusters', type=int, default=64, help='Number of NetVlad clusters. Default=64')
 parser.add_argument('--margin', type=float, default=0.1, help='Margin for triplet loss. Default=0.1')
@@ -397,7 +398,7 @@ if __name__ == "__main__":
                 for p in l.parameters():
                     p.requires_grad = False
 
-    if opt.mode.lower() == 'cluster': #and opt.vladv2 == False #TODO add v1 v2 switching as flag
+    if opt.mode.lower() == 'cluster' and not opt.vladv2:
         layers.append(L2Norm())
 
     encoder = nn.Sequential(*layers)
@@ -406,7 +407,7 @@ if __name__ == "__main__":
 
     if opt.mode.lower() != 'cluster':
         if opt.pooling.lower() == 'netvlad':
-            net_vlad = netvlad.NetVLAD(num_clusters=opt.num_clusters, dim=encoder_dim, vladv2=False)
+            net_vlad = netvlad.NetVLAD(num_clusters=opt.num_clusters, dim=encoder_dim, vladv2=opt.vladv2)
             if not opt.resume: 
                 if opt.mode.lower() == 'train':
                     initcache = join(opt.dataPath, 'centroids', opt.arch + '_' + train_set.dataset + '_' + str(opt.num_clusters) +'_desc_cen.hdf5')
