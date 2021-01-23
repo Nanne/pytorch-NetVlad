@@ -269,7 +269,7 @@ def get_clusters(cluster_set):
         
         print('====> Clustering..')
         niter = 100
-        kmeans = faiss.Kmeans(encoder_dim, opt.num_clusters, niter, verbose=False)
+        kmeans = faiss.Kmeans(encoder_dim, opt.num_clusters, niter=niter, verbose=False)
         kmeans.train(dbFeat[...])
 
         print('====> Storing centroids', kmeans.centroids.shape)
