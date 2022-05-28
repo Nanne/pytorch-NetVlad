@@ -33,7 +33,7 @@ Using this checkpoint and the following command you can obtain the results shown
 
 ## Data
 
-Running this code requires a copy of the Pittsburgh 250k (available [here](http://www.ok.ctrl.titech.ac.jp/~torii/project/repttile/)), 
+Running this code requires a copy of the Pittsburgh 250k (available [here](https://github.com/Relja/netvlad/issues/42)), 
 and the dataset specifications for the Pittsburgh dataset (available [here](https://www.di.ens.fr/willow/research/netvlad/data/netvlad_v100_datasets.tar.gz)).
 `pittsburgh.py` contains a hardcoded path to a directory, where the code expects directories `000` to `010` with the various Pittsburth database images, a directory
 `queries_real` with subdirectories `000` to `010` with the query images, and a directory `datasets` with the dataset specifications (.mat files).
